@@ -1,3 +1,8 @@
+# My version and answer
+
+Different branches contain my solution of tasks, in master branch is reference code
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
