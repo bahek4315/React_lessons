@@ -21,15 +21,15 @@ const CountersList = () => {
     };
 
     const handleIncrement = (id) => {
-        const currentState = Array.from(counters);
-        const foundPosition = currentState.indexOf(counters.find(item => item.id === id));
+        const currentState = [...counters];
+        const foundPosition = currentState.findIndex(item => item.id === id);
         currentState[foundPosition].value++;
         setCounters(currentState);
     }
 
     const handleDecrement = (id) => {
-        const currentState = Array.from(counters);
-        const foundPosition = currentState.indexOf(counters.find(item => item.id === id));
+        const currentState = [...counters];
+        const foundPosition = currentState.findIndex(item => item.id === id);
         if (currentState[foundPosition].value > 0) {
             currentState[foundPosition].value--;
             setCounters(currentState);
@@ -38,7 +38,14 @@ const CountersList = () => {
 
     return (
         <>
-            {counters.map(counter =><Counter key={counter.id} onDelete={handleDelete} onIncrement={handleIncrement} onDecrement={handleDecrement}{...counter}/>)}
+            {counters.map(counter =>
+                <Counter 
+                    key={counter.id}
+                    onDelete={handleDelete}
+                    onIncrement={handleIncrement}
+                    onDecrement={handleDecrement}
+                    {...counter}
+                />)}
             <button className="btn btn-primary btn-sm m-2" onClick={handleReset}>Сброс</button>
         </>
     );
