@@ -28,8 +28,10 @@ const CountersList = () => {
     const handleDecrement = (id) => {
         const elementIndex = counters.findIndex((c) => c.id === id);
         const newCounters = [...counters];
-        newCounters[elementIndex].value--;
-        setCounters(newCounters);
+        if (newCounters[elementIndex].value > 0) {
+            newCounters[elementIndex].value--;
+            setCounters(newCounters);
+        }
     };
 
     return (
